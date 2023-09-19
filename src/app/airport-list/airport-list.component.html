@@ -1,0 +1,20 @@
+<p-dropdown
+  [options]="countries"
+  [(ngModel)]="selectedCountry"
+  optionLabel="name"
+  [filter]="true"
+  filterBy="name"
+  [showClear]="true"
+  placeholder="Select a city"
+>
+  <!-- <ng-template pTemplate="selectedItem">
+    <div class="flex align-items-center gap-2">
+      <div>{{ selectedCountry.name }}</div>
+    </div>
+  </ng-template> -->
+  <ng-template let-country pTemplate="item">
+    <div class="flex align-items-center gap-2">
+      <div>{{ country.name }}</div>
+    </div>
+  </ng-template>
+</p-dropdown>
