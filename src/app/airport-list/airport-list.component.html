@@ -1,20 +1,41 @@
+<h3>Select an airport to see departures</h3>
 <p-dropdown
   [options]="countries"
   [(ngModel)]="selectedCountry"
   optionLabel="name"
+  optionValue="icao_code"
   [filter]="true"
   filterBy="name"
   [showClear]="true"
-  placeholder="Select a city"
+  placeholder="Select an airport"
+  (onChange)="getSchedule()"
 >
-  <!-- <ng-template pTemplate="selectedItem">
-    <div class="flex align-items-center gap-2">
-      <div>{{ selectedCountry.name }}</div>
-    </div>
-  </ng-template> -->
   <ng-template let-country pTemplate="item">
     <div class="flex align-items-center gap-2">
       <div>{{ country.name }}</div>
     </div>
   </ng-template>
 </p-dropdown>
+<h3>Departures</h3>
+<p-table [value]="firstFive">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Local time</th>
+      <th>Carrier</th>
+      <th>Flight</th>
+      <th>Destination</th>
+      <th>Duration</th>
+      <th>Status</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-firstFive>
+    <tr>
+      <td>{{ firstFive.dep_time }}</td>
+      <td>{{ firstFive.airline_icao }}</td>
+      <td>{{ firstFive.cs_flight_iata }}</td>
+      <td>{{ firstFive.arr_icao }}</td>
+      <td>{{ firstFive.duration }}</td>
+      <td>{{ firstFive.status }}</td>
+    </tr>
+  </ng-template>
+</p-table>

@@ -4,7 +4,7 @@ import { AirportListComponent } from './airport-list/airport-list.component';
 import { MapComponent } from './map/map.component';
 
 const routes: Routes = [
-  { path: 'airports', component: AirportListComponent },
+  { path: '', component: AirportListComponent },
   { path: 'map', component:  MapComponent},
 ];
 

@@ -10,10 +10,17 @@ export class AirportService {
   base_url = 'https://airlabs.co/api/v9/';
 
   private countriesDBUrl = `${this.base_url}airports?country_code=NO&api_key=${this.api_key}`;
+  private schedulesDBUrl = `${this.base_url}schedules`;
 
   constructor(private http: HttpClient) {}
 
   getAirports(): Observable<any> {
     return this.http.get(this.countriesDBUrl);
+  }
+
+  getAirportSchedule(icao: string): Observable<any> {
+    return this.http.get(
+      `${this.schedulesDBUrl}?dep_icao=${icao}&api_key=${this.api_key}`
+    );
   }
 }

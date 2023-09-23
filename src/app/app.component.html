@@ -1,21 +1,16 @@
-<h1>Norwegian Airports</h1>
-<p-tabView styleClass="tabview-custom">
-  <p-tabPanel>
-    <ng-template pTemplate="header">
-      <i class="pi pi-calendar"></i>
-      <span>Airports</span>
-    </ng-template>
-    <ng-template pTemplate="content">
-      <app-airport-list></app-airport-list>
-    </ng-template>
-  </p-tabPanel>
-  <p-tabPanel>
-    <ng-template pTemplate="header">
-      <i class="pi pi-calendar"></i>
-      <span>Map</span>
-    </ng-template>
-    <ng-template pTemplate="content">
-      <app-map></app-map>
-    </ng-template>
-  </p-tabPanel>
-</p-tabView>
+<nav>
+  <ul>
+    <li>
+      <a routerLink="/"
+        >Airport list</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/map"
+        >Map</a
+      >
+    </li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>

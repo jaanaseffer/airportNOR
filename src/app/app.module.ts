@@ -5,10 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { HttpClientModule } from '@angular/common/http';
-import { TabViewModule } from 'primeng/tabview';
 import { AirportListComponent } from './airport-list/airport-list.component';
 import { MapComponent } from './map/map.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [AppComponent, AirportListComponent, MapComponent],
@@ -17,9 +17,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     DropdownModule,
     HttpClientModule,
-    TabViewModule,
     FormsModule,
     BrowserAnimationsModule,
+    TableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

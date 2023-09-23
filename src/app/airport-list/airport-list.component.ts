@@ -8,15 +8,26 @@ import { AirportService } from '../app.service';
 })
 export class AirportListComponent implements OnInit {
   countries: any[] | undefined;
+  departures!: any[];
+  firstFive!: any[];
+  now!: any;
 
-  selectedCountry: string | undefined;
+  selectedCountry!: string;
 
   constructor(private airportService: AirportService) {}
 
   ngOnInit() {
     this.airportService.getAirports().subscribe((data) => {
       this.countries = data.response;
-      console.log(this.countries);
     });
+  }
+
+  getSchedule() {
+    this.airportService
+      .getAirportSchedule(this.selectedCountry)
+      .subscribe((data) => {
+        this.departures = data.response;
+        this.firstFive = this.departures.slice(0, 5);
+      });
   }
 }
